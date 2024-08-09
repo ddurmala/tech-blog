@@ -5,23 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
+
+    {{!-- Font Import --}}
+    {{!-- Syncopate --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+
+
+    {{!-- Link to CSS --}}
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Tech Talk</h1>
+    <header class="row">
+        <h1 class="margin">Tech Talk</h1>
         {{!-- The Ultimate Digital Digest --}}
 
-        <nav class="row align-center">
+        <nav class="row">
             {{#if user}}
-            <p class="mr-2"> Welcome, {{user.email}}</p>
+            <p> Welcome, {{user.email}}</p>
             <a href=" /logout">Log Out</a>
 
             {{else}}
-            <a href="/login" class="mr-2 {{#if login}}active{{/if}}">Log In</a>
-            <span class="mr-2">or</span>
-            <a href="/register" class="{{#if register}}active{{/if}}">Register</a>
+            <a href="/login" class="margin {{#if login}}active{{/if}}">Log In</a>
+
+            <a href="/register" class="margin {{#if register}}active{{/if}}">Register</a>
             {{/if}}
         </nav>
     </header>

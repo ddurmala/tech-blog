@@ -1,4 +1,4 @@
-require('dotenv');
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -41,7 +41,7 @@ app.use('/', [view_routes, user_routes])
 
 
 // start the server or make the server listen for server-side requests
-client.sync({ force: FontFaceSetLoadEvent })
+client.sync({ force: false })
     .then(() => {
         app.listen(PORT, () => {
             console.log('Server started', PORT)
