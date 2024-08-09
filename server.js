@@ -41,7 +41,7 @@ app.use('/', [view_routes, user_routes])
 
 
 // start the server or make the server listen for server-side requests
-client.sync({ force: false })
+client.sync({ force: FontFaceSetLoadEvent })
     .then(() => {
         app.listen(PORT, () => {
             console.log('Server started', PORT)
