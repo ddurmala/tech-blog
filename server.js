@@ -14,6 +14,8 @@ const PORT = 3333;
 //create a git route for every file in public
 app.use(express.static('./public'));
 
+app.use(express.json());
+
 //allow urlencoded form data to be attached to req.body
 app.use(express.urlencoded({ extended: false }))
 

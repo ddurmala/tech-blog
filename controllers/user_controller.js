@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, BlogPost } = require('../models');
 
 module.exports = {
     async registerUser(req, res) {
@@ -13,7 +13,6 @@ module.exports = {
             console.log(error);
             res.redirect('/register');
         }
-
     },
 
     async loginUser(req, res) {
