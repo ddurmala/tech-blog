@@ -17,6 +17,25 @@ module.exports = {
             res.redirect('/add');
         }
 
+    },
+
+    async updatePost(req, res) {
+        try {
+            await BlogPost.update(
+                req.body,
+                {
+                    where: {
+                        id: req.params.post_id
+                    },
+                    returning: true,
+                    plain: true
+                }
+            )
+            res.redirect('/dashboard')
+        } catch (error) {
+            console.log(error);
+            res.redirect('/dashboard');
+        }
     }
 
 }

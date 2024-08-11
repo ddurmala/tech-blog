@@ -4,17 +4,20 @@
     <h1>Welcome to the Homepage!</h1>
 
     {{#if posts.length}}
+
     <h3>All Blog Posts:</h3>
-    <ul>
+
+    <div class="grid">
         {{#each posts}}
-        <li>
-            <strong>Title:</strong> {{title}} <br>
-            <strong>Content:</strong> {{content}} <br>
-            <strong>Author:</strong> {{User.username}} <br>
-            <strong>Created At:</strong> {{createdAt}}
-        </li>
+        <div class="cell">
+            <h5>Title: {{title}}</h5>
+            <p>Content: {{content}} </p>
+            <p>Author: {{User.username}} </p>
+            <p>Created At: {{createdAt}} </p>
+            <a href="#" class="button is-info is-rounded">Comment</a>
+        </div>
         {{/each}}
-    </ul>
+    </div>
     {{else}}
     <p>No blog posts available.</p>
     {{/if}}

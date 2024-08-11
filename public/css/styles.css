@@ -19,36 +19,14 @@ form>* {
     margin-bottom: 6px;
 }
 
-/* global classes */
-
-.row,
-.column {
-    display: flex;
-}
-
-.column {
-    flex-direction: column;
-}
-
-.align-center {
-    align-items: center;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.margin {
-    margin: 2rem;
-}
 
 /* custom styles */
 
-header {
+/* header {
     justify-content: space-between;
     display: flex;
     flex-direction: row;
-}
+} */
 
 header h1,
 h2 {

@@ -12,29 +12,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 
-
     {{!-- Link to CSS --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
 
-    <header class="row">
-        <h1 class="margin">Tech Talk</h1>
-        {{!-- The Ultimate Digital Digest --}}
+    <header class="is-flex is-justify-content-space-between my-6">
+        <a href="/" class="is-flex">
+            <h1 class="title is-size-3 ml-5">Tech Talk</h1>
+        </a>
 
-        <nav class="row">
+        <nav class="is-flex is-align-items-center">
             {{#if user}}
-            <p class="margin"> Welcome, {{user.email}}</p>
+            <p class="mx-3"> Welcome, {{user.email}}</p>
 
-            <a href="/add" class="margin {{#if add}}active{{/if}}">Add New Post</a>
+            <a href="/add" class="mx-3 {{#if add}}active{{/if}}">Add New Post</a>
 
-            <a href=" /logout" class="margin">Log Out</a>
+            <a href=" /logout" class="mx-3">Log Out</a>
 
             {{else}}
-            <a href="/login" class="margin {{#if login}}active{{/if}}">Log In</a>
+            <a href="/login" class="mx-3 {{#if login}}active{{/if}}">Log In</a>
 
-            <a href="/register" class="margin {{#if register}}active{{/if}}">Register</a>
+            <a href="/register" class="mx-3 {{#if register}}active{{/if}}">Register</a>
             {{/if}}
         </nav>
     </header>

@@ -14,9 +14,17 @@ module.exports = {
             ]
         });
 
+        //flatten the data structure
+        const flattenedPosts = posts.map(post => ({
+            title: post.title,
+            content: post.content,
+            author: User.username,
+            createdAt: post.createdAt
+        }));
+
         res.render('homepage', {
             title: 'TB Homepage',
-            posts
+            posts: flattenedPosts
         });
     },
 
