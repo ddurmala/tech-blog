@@ -1,9 +1,7 @@
-const { DataTypes, Model } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const client = require('../config/connection');
 
-class BlogPost extends Model { }
-
-BlogPost.init({
+const BlogPost = client.define('BlogPost', {
     title: {
         type: DataTypes.STRING,
         allowNull: false
@@ -11,25 +9,17 @@ BlogPost.init({
     content: {
         type: DataTypes.TEXT,
         allowNull: false
-    },
-    dateCreated: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW
     }
-}, {
-    sequelize: client,
-    modelName: 'BlogPost'
-});
+})
 
 module.exports = BlogPost;
 
-
-
-// const { DataTypes, define } = require('sequelize');
+// const { DataTypes, Model } = require('sequelize');
 // const client = require('../config/connection');
 
-// const BlogPost = client.define('BlogPost', {
+// class BlogPost extends Model { }
+
+// BlogPost.init({
 //     title: {
 //         type: DataTypes.STRING,
 //         allowNull: false
@@ -43,6 +33,9 @@ module.exports = BlogPost;
 //         allowNull: false,
 //         defaultValue: DataTypes.NOW
 //     }
-// })
+// }, {
+//     sequelize: client,
+//     modelName: 'BlogPost'
+// });
 
 // module.exports = BlogPost;

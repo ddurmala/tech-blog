@@ -1,5 +1,19 @@
+<h2>Your Blog Posts:</h2>
+
 <section>
 
-
+    {{#if user.BlogPosts}}
+    <ul>
+        {{#each user.BlogPosts}}
+        <li>
+            <strong>Title:</strong> {{title}} <br>
+            <strong>Content:</strong> {{content}} <br>
+            <strong>Created At:</strong> {{createdAt}}
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p>no post ...yet</p>
+    {{/if}}
 
 </section>

@@ -1,9 +1,9 @@
-const { DataTypes, Model } = require('sequelize');
+const { DataTypes, define } = require('sequelize');
+const { hash, compare } = require('bcrypt');
+
 const client = require('../config/connection');
 
-class User extends Model { }
-
-User.init({
+const User = client.define('User', {
     email: {
         type: DataTypes.STRING,
         unique: true,
@@ -24,21 +24,31 @@ User.init({
         }
     }
 }, {
-    sequelize: client,
-    modelName: 'User'
+    hooks: {
+        async beforeCreate(user) {
+            user.password = await hash(user.password, 10);
+
+            return user;
+        }
+    }
 });
+
+User.prototype.validatePassword = async function (formPassword) {
+    const is_valid = await compare(formPassword, this.password)
+
+    return is_valid;
+
+};
 
 module.exports = User;
 
 
-
-
-
-// const { DataTypes, define } = require('sequelize');
+// const { DataTypes, Model } = require('sequelize');
 // const client = require('../config/connection');
 
+// class User extends Model { }
 
-// const User = client.define('User', {
+// User.init({
 //     email: {
 //         type: DataTypes.STRING,
 //         unique: true,
@@ -58,6 +68,9 @@ module.exports = User;
 //             len: 6
 //         }
 //     }
+// }, {
+//     sequelize: client,
+//     modelName: 'User'
 // });
 
 // module.exports = User;

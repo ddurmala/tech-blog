@@ -1,3 +1,4 @@
+
 const router = require('express').Router();
 const view_controller = require('../controllers/view_controller');
 const { redirectGuest, redirectUser } = require('./helpers')
@@ -13,5 +14,10 @@ router.get('/login', redirectUser, view_controller.showLoginPage);
 
 //dashboard route
 router.get('/dashboard', redirectGuest, view_controller.showDashboard)
+
+
+//add blog post route
+router.get('/add', redirectGuest, view_controller.showAdd);
+
 
 module.exports = router;

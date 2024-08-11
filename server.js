@@ -7,6 +7,7 @@ const { engine } = require('express-handlebars');
 const client = require('./config/connection');
 const view_routes = require('./routes/view_routes');
 const user_routes = require('./routes/user_routes');
+const blog_routes = require('./routes/blog_routes')
 
 const app = express();
 const PORT = 3333;
@@ -39,7 +40,7 @@ app.use(
 );
 
 //load in the routes
-app.use('/', [view_routes, user_routes])
+app.use('/', [view_routes, user_routes, blog_routes])
 
 
 // start the server or make the server listen for server-side requests
