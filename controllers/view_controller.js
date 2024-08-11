@@ -4,12 +4,12 @@ const { User, BlogPost } = require('../models');
 module.exports = {
     async showHomepage(req, res) {
 
-        const posts = await User.findAll({
-            attributes: ['username'],
+        const posts = await BlogPost.findAll({
+            attributes: ['title', 'content', 'createdAt'],
             include: [
                 {
-                    model: BlogPost,
-                    attributes: ['title', 'content', 'createdAt']
+                    model: User,
+                    attributes: ['username']
                 }
             ]
         });
