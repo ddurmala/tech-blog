@@ -1,5 +1,21 @@
 <h2 class="text-center margin">The Ultimate Digital Digest</h2>
 
 <section>
+    <h1>Welcome to the Homepage!</h1>
 
+    {{#if posts.length}}
+    <h3>All Blog Posts:</h3>
+    <ul>
+        {{#each posts}}
+        <li>
+            <strong>Title:</strong> {{title}} <br>
+            <strong>Content:</strong> {{content}} <br>
+            <strong>Author:</strong> {{User.username}} <br>
+            <strong>Created At:</strong> {{createdAt}}
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p>No blog posts available.</p>
+    {{/if}}
 </section>

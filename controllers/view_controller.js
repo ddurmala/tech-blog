@@ -3,7 +3,16 @@ const { User, BlogPost } = require('../models');
 
 module.exports = {
     async showHomepage(req, res) {
-        const posts = await BlogPost.findAll() || [];
+
+        const posts = await User.findAll({
+            attributes: ['username'],
+            include: [
+                {
+                    model: BlogPost,
+                    attributes: ['title', 'content', 'createdAt']
+                }
+            ]
+        });
 
         res.render('homepage', {
             title: 'TB Homepage',
