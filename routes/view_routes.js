@@ -19,5 +19,8 @@ router.get('/dashboard', redirectGuest, view_controller.showDashboard)
 //add blog post route
 router.get('/add', redirectGuest, view_controller.showAdd);
 
+//get individual blog posts for editing
+router.get('/edit/:id', redirectGuest, view_controller.showEditBlogPostPage)
+
 
 module.exports = router;

@@ -56,27 +56,29 @@ module.exports = {
             include: [
                 {
                     model: BlogPost,
-                    attributes: ['title', 'content', 'createdAt']
+                    attributes: ['id', 'title', 'content', 'createdAt']
                 }
             ]
+        })
+
+        res.render('dashboard', {
+            title: '',
+            user: user.get({ plain: true })
+        })
+    },
+
+    async showEditBlogPostPage(req, res) {
+        const user = await User.findByPk(req.session.user_id, {
+            attributes: ['email', 'username']
         });
+        const blogPost = await BlogPost.findByPk(req.params.id);
 
-        if (user && user.BlogPosts) {
-            const userBlogPosts = user.BlogPosts;
-
-            res.render('dashboard', {
-                title: '',
-                user: user.get({ plain: true }),
-                userBlogPosts
-            })
-        } else {
-
-            res.render('dashboard', {
-                title: '',
-                user: user.get({ plain: true }),
-                userBlogPosts: []
-            });
-        }
+        res.render('edit', {
+            user: user.get({ plain: true }),
+            title: "TB Edit",
+            blogPost: blogPost.get({ plain: true }),
+            edit_page: true
+        })
     }
 
 } 

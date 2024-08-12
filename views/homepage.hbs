@@ -1,20 +1,21 @@
-<h2 class="text-center margin">The Ultimate Digital Digest</h2>
+<h2 class="title is-4 m-5 p-3 has-text-centered">The Ultimate Digital Digest</h2>
 
 <section>
-    <h1>Welcome to the Homepage!</h1>
-
     {{#if posts.length}}
 
-    <h3>All Blog Posts:</h3>
+    <h2 class="title is-5 m-5">All Blog Posts:</h2>
 
-    <div class="grid">
+
+    <div class="columns is-multiline is-mobile">
         {{#each posts}}
-        <div class="cell">
-            <h5>Title: {{title}}</h5>
-            <p>Content: {{content}} </p>
-            <p>Author: {{User.username}} </p>
-            <p>Created At: {{createdAt}} </p>
-            <a href="#" class="button is-info is-rounded">Comment</a>
+        <div class="column is-one-quarter">
+            <div class="box">
+                <h5>{{title}}</h5>
+                <p>{{content}} </p>
+                <p>{{User.username}} </p>
+                <p>Created on {{createdAt}} </p>
+                <a href="#" class="button is-info is-rounded">Comment</a>
+            </div>
         </div>
         {{/each}}
     </div>

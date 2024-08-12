@@ -2,6 +2,8 @@ const { User, BlogPost } = require('../models');
 
 
 module.exports = {
+
+    //create a new post
     async addPost(req, res) {
         const formData = req.body;
         try {
@@ -14,6 +16,7 @@ module.exports = {
 
         } catch (error) {
             console.log(error);
+
             res.redirect('/add');
         }
 
@@ -21,21 +24,28 @@ module.exports = {
 
     async updatePost(req, res) {
         try {
-            await BlogPost.update(
-                req.body,
-                {
-                    where: {
-                        id: req.params.post_id
-                    },
-                    returning: true,
-                    plain: true
-                }
-            )
-            res.redirect('/dashboard')
+            const updatedPost = await BlogPost.update({
+                title: req.body.title,
+                content: req.body.content
+            }, {
+                where: { id: req.params.id }
+            });
+
+            res.redirect('/'); // Redirect to the home page after updating
         } catch (error) {
-            console.log(error);
-            res.redirect('/dashboard');
+            console.error(error);
+            res.status(500).send('Internal Server Error');
         }
+    },
+
+    async deletePosts(req, res) {
+
+        await BlogPost.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.redirect('/dashboard');
     }
 
 }

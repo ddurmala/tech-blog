@@ -1,17 +1,27 @@
-<h2>Your Blog Posts:</h2>
+<h2 class="title is-5 m-5">Your Blog Posts:</h2>
 
 <section>
 
     {{#if user.BlogPosts}}
-    <ul>
+    <div class="columns is-multiline">
         {{#each user.BlogPosts}}
-        <li>
-            <strong>Title:</strong> {{title}} <br>
-            <strong>Content:</strong> {{content}} <br>
-            <strong>Created At:</strong> {{createdAt}}
-        </li>
+        <div class="column is-one-quarter">
+            <div class="box">
+                <h5>Title:{{title}} </h5>
+                <p>Content: {{content}} </p>
+                <p>Created At: {{createdAt}} </p>
+
+                <footer class="is-flex is-justify-content-center is-align-items-center">
+                    <a href="/edit/{{id}}" class="m-2 button is-info is-rounded">Edit</a>
+
+                    <form action="/remove/{{id}}?_method=DELETE" method="POST">
+                        <button id="delete-btn" class="m-2 button is-info is-rounded" type="submit">Delete</button>
+                    </form>
+                </footer>
+            </div>
+        </div>
         {{/each}}
-    </ul>
+    </div>
     {{else}}
     <p>no post ...yet</p>
     {{/if}}

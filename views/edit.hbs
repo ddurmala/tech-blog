@@ -1,0 +1,9 @@
+<form action="/edit/{{blogPost.id}}?_method=PUT" method="POST">
+    <label for="blogTitle">Blog Title:</label><br>
+    <input type="text" id="title" name="title" value="{{blogPost.title}}"><br><br>
+
+    <label for="blogText">Blog Text:</label><br>
+    <textarea id="blogText" name="content" rows="4" cols="50">{{blogPost.content}}</textarea><br><br>
+
+    <input type="submit" value="Submit">
+</form>
