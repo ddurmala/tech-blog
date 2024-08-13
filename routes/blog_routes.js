@@ -7,6 +7,9 @@ router.post('/add', blog_controller.addPost);
 //update blogPost
 router.put('/edit/:id', blog_controller.updatePost);
 
+//create a new comment
+router.post('/comment/:id', blog_controller.addComment);
+
 //delete blogPost
 router.delete('/remove/:id', blog_controller.deletePosts);
 

@@ -1,4 +1,4 @@
-const { User, BlogPost } = require('../models');
+const { User, BlogPost, Comment } = require('../models');
 
 
 module.exports = {
@@ -19,7 +19,6 @@ module.exports = {
 
             res.redirect('/add');
         }
-
     },
 
     async updatePost(req, res) {
@@ -35,6 +34,23 @@ module.exports = {
         } catch (error) {
             console.error(error);
             res.status(500).send('Internal Server Error');
+        }
+    },
+
+    //create a new comment
+    async addComment(req, res) {
+        const formData = req.body;
+        try {
+            await Comment.create({
+                ...formData,
+                BlogPostId: req.session.blogPost_id
+            });
+
+            res.redirect('/homepage');
+        } catch (error) {
+            console.log(error);
+
+            res.redirect('/comment/:id');
         }
     },
 

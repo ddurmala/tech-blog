@@ -23,7 +23,7 @@ module.exports = {
                 email: formData.email
             }
         });
-        console.log(formData);
+        // console.log(formData);
 
         if (!user) {
             return res.redirect('/register');

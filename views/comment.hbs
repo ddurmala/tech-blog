@@ -1,0 +1,14 @@
+<section>
+
+    <h4>{{blogPost.title}}</h4>
+
+    <p>{{blogPost.content}}</p>
+
+</section>
+
+<form action="/comment/:id" method="POST">
+    <textarea name="comment" rows="4" cols="50"></textarea>
+
+    <input type="submit" value="Submit">
+
+</form>

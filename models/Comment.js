@@ -1,15 +1,11 @@
 const { DataTypes } = require('sequelize');
 const client = require('../config/connection');
 
-const BlogPost = client.define('BlogPost', {
-    title: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
+const Comment = client.define('Comment', {
     content: {
         type: DataTypes.TEXT,
         allowNull: false
     }
-})
+});
 
-module.exports = BlogPost;
+module.exports = Comment;

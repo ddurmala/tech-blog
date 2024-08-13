@@ -79,6 +79,20 @@ module.exports = {
             blogPost: blogPost.get({ plain: true }),
             edit_page: true
         })
+    },
+
+    async showCommentPage(req, res) {
+        const user = await User.findByPk(req.session.user_id, {
+            attributes: ['email', 'username']
+        });
+        const blogPost = await BlogPost.findByPk(req.params.id);
+
+        res.render('comment', {
+            user: user.get({ plain: true }),
+            title: "TB Comment",
+            blogPost: blogPost.get({ plain: true }),
+            comment_page: true
+        })
     }
 
 } 
