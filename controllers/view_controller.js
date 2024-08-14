@@ -52,10 +52,14 @@ module.exports = {
         })
     },
 
-    showAdd(req, res) {
+    async showAdd(req, res) {
+        const user = await User.findByPk(req.session.user_id, {
+            attributes: ['email', 'username']
+        })
+
         res.render('add', {
             title: 'TB Add',
-            user: req.session.user,
+            user: user.get({ plain: true }),
             add: true
         })
     },
