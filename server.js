@@ -38,7 +38,8 @@ app.use(
         resave: false,
         proxy: true,
         cookie: {
-            httpOnly: true
+            httpOnly: true,
+            maxAge: 1 * 60 * 60
         }
     })
 );

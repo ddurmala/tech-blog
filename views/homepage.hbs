@@ -1,21 +1,35 @@
-<h2 class="title is-4 m-5 p-3 has-text-centered">The Ultimate Digital Digest</h2>
+<h2 class="title is-4 m-6 p-3 has-text-centered">The Ultimate Digital Digest</h2>
 
 <section>
     {{#if posts.length}}
 
-    <h2 class="title is-5 m-5">All Blog Posts:</h2>
+    <h2 class="title is-5 m-5 py-3">All Blog Posts:</h2>
 
     <div class="columns is-multiline is-mobile">
         {{#each posts}}
-        <div class="column is-one-quarter">
+        <div class="column is-one-third">
             <div class="box">
-                <h5>{{title}}</h5>
-                <p>{{content}} </p>
-                <p>{{user.username}} </p>
-                <p>Created on {{createdAt}} </p>
-                {{#if user}}
-                <a href="/comment/:id" class="button is-info is-rounded">Comment</a>
+                <h2 class="is-size-5 has-text-weight-bold">{{title}}</h2>
+                <p>{{content}} </p> <br>
+                <p class="is-size-6">posted by: {{User.username}} </p> <br>
+                <p class="m-3">Created on {{date}} </p>
+
+                {{#if ../user}}
+                <a href="/comment/{{id}}" class="special-button button is-success is-rounded">Comment</a>
                 {{/if}}
+
+                <hr>
+
+                <details>
+                    <summary class="m-3">See Comments</summary>
+                    {{#each Comments}}
+                    <p>{{content}}</p>
+                    <p>Added by: {{User.username}}</p>
+                    <p>Created on: {{date}}</p>
+                    {{/each}}
+                </details>
+
+
             </div>
         </div>
         {{/each}}

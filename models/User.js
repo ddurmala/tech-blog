@@ -1,4 +1,4 @@
-const { DataTypes, define } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const { hash, compare } = require('bcrypt');
 
 const client = require('../config/connection');
@@ -41,36 +41,3 @@ User.prototype.validatePassword = async function (formPassword) {
 };
 
 module.exports = User;
-
-
-// const { DataTypes, Model } = require('sequelize');
-// const client = require('../config/connection');
-
-// class User extends Model { }
-
-// User.init({
-//     email: {
-//         type: DataTypes.STRING,
-//         unique: true,
-//         allowNull: false,
-//         validate: {
-//             isEmail: true
-//         }
-//     },
-//     username: {
-//         type: DataTypes.STRING,
-//         allowNull: false
-//     },
-//     password: {
-//         type: DataTypes.STRING,
-//         allowNull: false,
-//         validate: {
-//             len: 6
-//         }
-//     }
-// }, {
-//     sequelize: client,
-//     modelName: 'User'
-// });
-
-// module.exports = User;

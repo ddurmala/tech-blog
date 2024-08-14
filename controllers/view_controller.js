@@ -1,30 +1,40 @@
-const { User, BlogPost } = require('../models');
+const { User, BlogPost, Comment } = require('../models');
 // const { post } = require('../routes/blog_routes');
 
 module.exports = {
     async showHomepage(req, res) {
 
+        const user = await User.findByPk(req.session.user_id, {
+            attributes: ['username']
+        });
+
         const posts = await BlogPost.findAll({
-            attributes: ['title', 'content', 'createdAt'],
+
+            attributes: ['id', 'title', 'content', 'date'],
             include: [
                 {
                     model: User,
                     attributes: ['username']
+                },
+                {
+                    model: Comment,
+                    attributes: ['content', 'date'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
                 }
             ]
         });
 
+
         //flatten the data structure
-        const flattenedPosts = posts.map(post => ({
-            title: post.title,
-            content: post.content,
-            author: User.username,
-            createdAt: post.createdAt
-        }));
+        const flattenedPosts = posts.map(post => post.get({ plain: true }));
 
         res.render('homepage', {
             title: 'TB Homepage',
-            posts: flattenedPosts
+            posts: flattenedPosts,
+            user: user ? user.get({ plain: true }) : false
         });
     },
 
@@ -45,6 +55,7 @@ module.exports = {
     showAdd(req, res) {
         res.render('add', {
             title: 'TB Add',
+            user: req.session.user,
             add: true
         })
     },
@@ -56,14 +67,15 @@ module.exports = {
             include: [
                 {
                     model: BlogPost,
-                    attributes: ['id', 'title', 'content', 'createdAt']
+                    attributes: ['id', 'title', 'content', 'date']
                 }
             ]
         })
 
         res.render('dashboard', {
             title: '',
-            user: user.get({ plain: true })
+            user: user.get({ plain: true }),
+            dashboard: true
         })
     },
 
@@ -85,7 +97,7 @@ module.exports = {
         const user = await User.findByPk(req.session.user_id, {
             attributes: ['email', 'username']
         });
-        const blogPost = await BlogPost.findByPk(req.params.id);
+        const blogPost = await BlogPost.findByPk(req.params.blog_id);
 
         res.render('comment', {
             user: user.get({ plain: true }),

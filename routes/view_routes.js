@@ -22,7 +22,7 @@ router.get('/add', redirectGuest, view_controller.showAdd);
 router.get('/edit/:id', redirectGuest, view_controller.showEditBlogPostPage)
 
 //get blog post for commenting
-router.get('/comment/:id', redirectGuest, view_controller.showCommentPage)
+router.get('/comment/:blog_id', redirectGuest, view_controller.showCommentPage)
 
 
 module.exports = router;

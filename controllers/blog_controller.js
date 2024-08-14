@@ -43,14 +43,15 @@ module.exports = {
         try {
             await Comment.create({
                 ...formData,
-                BlogPostId: req.session.blogPost_id
+                BlogPostId: req.params.blog_id,
+                UserId: req.session.user_id
             });
 
-            res.redirect('/homepage');
+            res.redirect('/');
         } catch (error) {
             console.log(error);
 
-            res.redirect('/comment/:id');
+            res.redirect('/comment/' + req.params.blog_id);
         }
     },
 

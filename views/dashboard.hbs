@@ -3,19 +3,19 @@
 <section>
 
     {{#if user.BlogPosts}}
-    <div class="columns is-multiline">
+    <div class="m-5 columns is-multiline">
         {{#each user.BlogPosts}}
-        <div class="column is-one-quarter">
+        <div class="column is-one-third">
             <div class="box">
-                <h5>Title:{{title}} </h5>
-                <p>Content: {{content}} </p>
-                <p>Created At: {{createdAt}} </p>
+                <h5>{{title}} </h5> <br>
+                <p>{{content}} </p> <br>
+                <p>{{date}} </p> <br>
 
                 <footer class="is-flex is-justify-content-center is-align-items-center">
-                    <a href="/edit/{{id}}" class="m-2 button is-info is-rounded">Edit</a>
+                    <a href="/edit/{{id}}" class="m-2 button is-success is-rounded">Edit</a>
 
                     <form action="/remove/{{id}}?_method=DELETE" method="POST">
-                        <button id="delete-btn" class="m-2 button is-info is-rounded" type="submit">Delete</button>
+                        <button id="delete-btn" class="m-2 button is-success is-rounded" type="submit">Delete</button>
                     </form>
                 </footer>
             </div>

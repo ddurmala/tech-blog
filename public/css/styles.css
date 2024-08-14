@@ -5,13 +5,23 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+html {
+    background-color: rgb(205, 234, 222);
+}
+
+body {
+    margin: 0 30px;
+}
+
 a {
     color: #333;
 }
 
 form {
-    width: 400px;
+    width: 500px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 form>* {
@@ -21,12 +31,6 @@ form>* {
 
 
 /* custom styles */
-
-/* header {
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-} */
 
 header h1,
 h2 {
@@ -41,9 +45,14 @@ nav a {
 
 nav a.active,
 nav a:hover {
-    color: rgb(55, 55, 161);
+    color: rgb(48, 139, 105);
     font-weight: bold;
     text-decoration: underline;
+}
+
+.special-button {
+    width: 200px;
+    margin: 0 auto;
 }
 
 /* media queries */

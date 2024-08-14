@@ -1,9 +1,11 @@
+<h2 class="m-5 has-text-centered title is-4">add a new blog post:</h2>
+
 <form action="/add" method="POST">
-    <label for="blogTitle">Blog Title:</label><br>
-    <input type="text" id="title" name="title"><br><br>
+    <label for="blogTitle">Your Blog Title</label>
+    <input class="input is-large" type="text" id="title" name="title"><br><br>
 
-    <label for="blogText">Blog Text:</label><br>
-    <textarea id="blogText" name="content" rows="4" cols="50"></textarea><br><br>
+    <label for="blogText">Blog Text:</label>
+    <textarea class="textarea" id="blogText" name="content" rows="8" cols="50"></textarea><br><br>
 
-    <input type="submit" value="Submit">
+    <input class="special-button button is-success is-rounded" type="submit" value="Submit">
 </form>

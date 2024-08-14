@@ -1,14 +1,18 @@
-<section>
+<section class="my-6 has-text-centered">
 
-    <h4>{{blogPost.title}}</h4>
+    <h2 class="is-size-5 has-text-weight-bold">{{blogPost.title}}</h2><br>
 
     <p>{{blogPost.content}}</p>
 
 </section>
 
-<form action="/comment/:id" method="POST">
-    <textarea name="comment" rows="4" cols="50"></textarea>
+<hr class="mt-6">
 
-    <input type="submit" value="Submit">
+<form class="mt-6 pt-6" action="/comment/{{blogPost.id}}" method="POST">
+    <h2 class="title is-size-6">enter your comment here: </h2>
+
+    <textarea name="content" rows="8" cols="50"></textarea><br>
+
+    <input class="special-button button is-success is-rounded" type="submit" value="Submit">
 
 </form>
