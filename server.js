@@ -39,7 +39,7 @@ app.use(
         proxy: true,
         cookie: {
             httpOnly: true,
-            maxAge: 1 * 60 * 60
+            maxAge: 4 * 60 * 60 * 1000
         }
     })
 );

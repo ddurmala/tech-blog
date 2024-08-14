@@ -1,19 +1,21 @@
-# tech-blog
+# tech-talk - blog-site
 
 ## Description
 
-This application serves as the backend for an e-commerce website that uses that helps businesses and consumers buy and sell online.  The models/routes help businesses create/update/view/delete products, tags & categories. Information is saved to the ecommerce_db database. 
+This application is a blog site for all things technology.  Users can view, add, update and delete their own blog posts.  On the homepage, users can view and comment on other's posts.  This site allows the tech community to share thoughts, ideas and so much more with one another.
 
 ## Installation 
 
-"scripts": 
-    "dev": "nodemon server.js",
+"scripts": {
     "start": "node server.js",
-    "seed": "node seeds/index.js"
+    "dev": "nodemon server.js"
+}
+
+**see .env-Example for needed values
 
 ## Usage
 
-video link: https://drive.google.com/file/d/1j4_bHY0Xyz83C8wnq52Wqg-kZ8g1vWSy/view?usp=sharing
+deployed website: https://tech-blog-bato.onrender.com
 
 
 ## Testing
@@ -55,6 +57,4 @@ SOFTWARE.
 
 ## Features
 
-- generate new products along with their price, stock, and category id
-- create, view, update and delete categories, products & tags
-- assign tags and categories to a product
+- 
