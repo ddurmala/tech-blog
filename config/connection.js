@@ -3,7 +3,14 @@ const Sequelize = require('sequelize');
 let client;
 
 if (process.env.DB_URL) {
-    client = new Sequelize(process.env.DB_URL)
+    client = new Sequelize(process.env.DB_URL, {
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false
+            }
+        }
+    })
 } else {
     client = new Sequelize({
         dialect: 'postgres',
