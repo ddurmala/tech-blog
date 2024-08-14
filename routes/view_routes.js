@@ -24,5 +24,8 @@ router.get('/edit/:id', redirectGuest, view_controller.showEditBlogPostPage)
 //get blog post for commenting
 router.get('/comment/:blog_id', redirectGuest, view_controller.showCommentPage)
 
+// //get route to view individual post
+// router.get('/post/:blog_id', view_controller.showSinglePost)
+
 
 module.exports = router;

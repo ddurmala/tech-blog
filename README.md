@@ -17,6 +17,9 @@ This application is a blog site for all things technology.  Users can view, add,
 
 deployed website: https://tech-blog-bato.onrender.com
 
+![Screenshot](./public/images/TT-SS-1.png)
+![Screenshot](./public/images/TT-SS-2.png)
+![Screenshot](./public/images/TT-SS-3.png)
 
 ## Testing
 
@@ -57,4 +60,7 @@ SOFTWARE.
 
 ## Features
 
-- 
+- sign-in or register new user
+- view community blog post whether a user or no registered
+- if user, view, add, update and delete posts
+- if user, leave comments on others' posts
