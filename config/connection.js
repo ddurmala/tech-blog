@@ -2,8 +2,8 @@ const Sequelize = require('sequelize');
 
 let client;
 
-if (process.env.DB_URL) {
-    client = new Sequelize(process.env.DB_URL, {
+if (process.env.PG_URL) {
+    client = new Sequelize(process.env.PG_URL, {
         dialectOptions: {
             ssl: {
                 require: true,
